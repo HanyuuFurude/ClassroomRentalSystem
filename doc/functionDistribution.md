@@ -4,14 +4,14 @@
 * 甲方（兼任）一枚
   * lyMeiSEU
 * 乙方项目经理一枚
-  * 等一个有缘人
+  * Hanyuu
 * 架构一枚
-  * 等一个有缘人
+  * lemonyy
 * 前端两枚
   * HanyuuFurude
-  * 等一个有缘人
+  * Onankiaja
 * 后端两枚
-  * 等一个有缘人
-  * 等一个有缘人
+  * lyMeiSEU
+  * DreamDy
 * 测试一枚
-  * 等一个有缘人
+  *  yxxxxxx
