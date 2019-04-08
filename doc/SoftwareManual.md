@@ -49,6 +49,7 @@
 * 平均宕机时间不超过99.9%
 * 承受并发量500以下的负载
 * 工作时间7*18h（6小时下线时间、可用于备份、维护、整理、故障恢复和磁盘优化）
+* 预约时间
 * 用户操作到反馈的时间不高于5s
 
 ### 本系统上下文说明
@@ -59,16 +60,18 @@
 本系统与客户方已有的用户数据库对接，对方数据库使用MySQL，表结构如下：
 
 *   用户信息表
+*   User Info Tabel
 
 |uuid(master key)|id|identity|name|password(hash)|
 |--|--|--|--|--|
-|BYTE[64]|BYTE[64]|STRING[64]|STRING[16]|BYTE[32]|
+|CHAR[64]|BYTE[64]|VARCHAR[64]|VARCHAR|CHAR[32]|
 
 *   日志记录表（两份，一份记录当日往前7日（含当日）的日志，另一份存历史日志）
+*   Log Tabel
 
 | classRoom(master key) | user     | startTIme | endTime | used | breach | remarks  |
 | --------------------- | -------- | --------- | ------- | ---- | ------ | -------- |
-| BYTE[64]              | BYTE[64] | DATE      | DATE    | bool | bool   | BYTE[64] |
+| CHAR[64]              | CHAR[64] | DATE      | DATE    | bool | bool   | CHAR[64] |
 
 
 
@@ -78,7 +81,7 @@
 这里的描述格式不做更细的约定，由设计人员自行把握。 -->
 x86-64单服务器
 
-150Mbps上下行带宽
+150Mbps上下行带宽Mbps
 
 ### 设计约束
 
@@ -258,6 +261,8 @@ x86-64单服务器
 ## 出错处理设计
 
 ### 出错信息
+
+[StatusCode状态码](./statusCode.md)
 
 <!-- 用一览表的方式说朗每种可能的出错或故障情况出现时，系统输出信息的形式、含意及处理方法。 -->
 
