@@ -1,7 +1,5 @@
 package Interface;
 
-import Interface.StatusCode;
-
 public interface Client {
 
 //	public abstract Object[] login();
