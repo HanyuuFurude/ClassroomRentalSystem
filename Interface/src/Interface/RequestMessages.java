@@ -1,3 +1,6 @@
+package Interface;
+
+import Interface.Order;
 
 class RequestMessages {
 	private Role role;

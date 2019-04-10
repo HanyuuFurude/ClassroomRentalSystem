@@ -1,3 +1,5 @@
+package Interface;
+
 /**
  * @author Hanyuu Furude
  * @program Interface

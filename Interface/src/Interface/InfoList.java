@@ -1,3 +1,7 @@
+package Interface;
+
+import Interface.Order;
+
 /**
  * @author Hanyuu Furude
  * @program Interface
