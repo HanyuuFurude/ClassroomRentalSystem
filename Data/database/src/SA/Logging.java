@@ -7,7 +7,7 @@ import java.util.logging.*;
 
 public class Logging {
 
-    public static void main(String args[]) throws IOException {
+    public static void main(String args[]) throws IOException,SecurityException {
 
         //日志文件
         String  path = System.getProperty("user.dir");//获取项目绝对路径
@@ -22,12 +22,11 @@ public class Logging {
                 Date date = new Date();
                 String sDate = date.toString();
                 return "[" + sDate + "]" + "[" + record.getLevel() + "]"
-                        + record.getClass() + record.getMessage() + "\n";
+                        + record.getMessage() + "\n";
             }
         });
         log.addHandler(fileHandler);
-        log.info("This is test java util log1");
-        log.warning("This is test java util log2");
+        log.info("Order：");
         fileHandler.close();
     }
 }
