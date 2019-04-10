@@ -147,7 +147,7 @@ x86-64单服务器
 
 ![SoftwareManual/useCase.jpg](SoftwareManual/useCase.jpg)
 
-![4SoftwareManual/class.jpg](SoftwareManual/class.jpg)
+![SoftwareManual/class.jpg](SoftwareManual/class.jpg)
 
 #### 各实体说明
 
