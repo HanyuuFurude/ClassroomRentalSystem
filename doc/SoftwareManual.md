@@ -147,11 +147,10 @@ x86-64单服务器
 
 ![SoftwareManual/useCase.jpg](SoftwareManual/useCase.jpg)
 
-![SoftwareManual/class.jpg](SoftwareManual/class.jpg)
+![4SoftwareManual/class.jpg](SoftwareManual/class.jpg)
 
 #### 各实体说明
 
-见 [类和实体文档](./class.md)
 #### 初始化 / 配置说明
 
  见[部署文档](./deploy.md)
