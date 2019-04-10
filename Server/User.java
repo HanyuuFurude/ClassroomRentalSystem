@@ -1,7 +1,7 @@
 package mine;
 /**
  * @author yourname
- * @date 2019年4月3日 下午8:38:41
+ * @date 2019��4��3�� ����8:38:41
  * 
  */
 
@@ -21,6 +21,19 @@ public class User extends Role{
 	public InfoList getReservationInfomation(ClassRoom classRoom) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public InfoList getReservationInfomation(Role role) {
+		return null;
+	}
+	
+	public StatusCode addReservationInfomation(InfoList info) {
+		return null;
+	}
+		
+	public StatusCode delReservationInfomation(InfoList info) {
+		return null;
+			
 	}
 
 }
