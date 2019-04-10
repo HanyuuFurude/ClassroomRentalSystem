@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<han_dynasty>  
+    <emperor id="first">  
+        <name>刘邦</name>  
+        <posthumous_title>汉高帝</posthumous_title>  
+        <reign>7</reign>  
+    </emperor>  
+    <emperor id="second">  
+        <name>刘盈</name>  
+        <posthumous_title>汉惠帝</posthumous_title>  
+        <reign>7</reign>  
+    </emperor>  
+    <emperor id="third">  
+        <name>刘恒</name>  
+        <posthumous_title>汉文帝</posthumous_title>  
+        <reign>23</reign>    
+    </emperor>  
+ 
+     <emperore id="forth">  
+        <name>刘启</name>  
+        <posthumous_title>汉景帝</posthumous_title>  
+        <reign>16</reign>    
+    </emperore>  
+</han_dynasty>  
