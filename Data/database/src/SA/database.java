@@ -10,7 +10,7 @@ public class database {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            String dbURL = "jdbc:mysql://localhost:3306/" + "MyDB?user=root&password=1129&serverTimezone=GMT&useSSL=false&nullNamePatternMatchesAll=true";
+            String dbURL = "jdbc:mysql://localhost:3306/" + "MyDB?user=root&password=1129&serverTimezone=GMT%2B8&useSSL=false&nullNamePatternMatchesAll=true";
             connection = DriverManager.getConnection(dbURL);
 
             String sqlQuery = "select uuid from table1";
@@ -23,7 +23,7 @@ public class database {
                 System.out.println(rsmd.getColumnName(i) + "/t");
             }
             while (rs.next()) {
-                System.out.println(rs.getString("uuid"));
+                //System.out.println(rs.getString("uuid"));
             }
         } catch (ClassNotFoundException e) {
             System.out.println("No class driver.");
@@ -31,9 +31,9 @@ public class database {
             e.printStackTrace();
         } finally {
             try {
-                rs.close();
-                statement.close();
-                connection.close();
+//                rs.close();
+//                statement.close();
+//                connection.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
