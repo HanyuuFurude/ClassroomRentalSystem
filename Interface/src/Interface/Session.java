@@ -1,3 +1,5 @@
+package Interface;
+
 import java.util.Arrays;
 
 class Session {
@@ -5,7 +7,7 @@ class Session {
 	private byte[] userType;
 	private int timeLimit;
 	
-	public Session(byte[] sessionID, byte[] userType, int timeLimit) throws Exception{
+	public Session(byte[] sessionID, byte[] userType, int timeLimit) throws Exception {
 		this.sessionID = sessionID;
 		this.userType = userType;
 		this.timeLimit = timeLimit;
@@ -28,14 +30,12 @@ class Session {
 		sessionIDCheck();
 		userTypeCheck();
 		timeLimitCheck();
-		return;
 	}
 	
 	private void sessionIDCheck() throws Exception {
 		if (sessionID.length != 64) {
 			throw new Exception("[Interface.Session.Gen]:Invaild sessionID [Hanyuu]");
 		}
-		return;
 	}
 	
 	private void userTypeCheck() throws Exception {
@@ -45,13 +45,11 @@ class Session {
 				throw new Exception("[Interface.Session.Gen]:Invaild userType [Hanyuu]");
 			}
 		}
-		return;
 	}
 	
 	private void timeLimitCheck() throws Exception {
 		if (timeLimit <= 0) {
 			throw new Exception("[Interface.Session.Gen]:Invaild timeLimit [Hanyuu]");
 		}
-		return;
 	}
 }

@@ -1,3 +1,4 @@
+package Interface;
 
 class RequestMessages {
 	private Role role;

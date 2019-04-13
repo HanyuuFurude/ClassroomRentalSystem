@@ -1,3 +1,4 @@
+package mine;
 /**
  * @author Hanyuu Furude
  * @program Interface
