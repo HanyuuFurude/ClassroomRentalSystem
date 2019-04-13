@@ -3,11 +3,10 @@ package SA;
 import java.sql.*;
 
 public class database {
-    public static void main(String[] args) {
-        Connection connection=null;
+    public static Connection connection=null;
+    public static Connection connect() {
         ResultSet rs=null;
         Statement statement=null;
-
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -39,6 +38,7 @@ public class database {
                 e.printStackTrace();
             }
         }
+        return connection;
     }
 }
 
