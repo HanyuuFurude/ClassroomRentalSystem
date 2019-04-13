@@ -1,6 +1,6 @@
 package com.sa.net.client;
 
-import com.sa.net.Session.Session;
+import com.sa.net.session.Session;
 import com.sa.net.protocol.LoginResponsePacket;
 import com.sa.net.utils.SessionUtil;
 

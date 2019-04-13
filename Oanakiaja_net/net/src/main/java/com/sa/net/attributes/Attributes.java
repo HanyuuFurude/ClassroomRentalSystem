@@ -1,5 +1,5 @@
 package com.sa.net.attributes;
-import com.sa.net.Session.Session;
+import com.sa.net.session.Session;
 
 import io.netty.util.AttributeKey;
 //会话信息

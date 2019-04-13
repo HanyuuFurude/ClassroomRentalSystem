@@ -6,7 +6,7 @@ import io.netty.channel.Channel;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import com.sa.net.Session.Session;
+import com.sa.net.session.Session;
 import com.sa.net.attributes.Attributes;
 
 public class SessionUtil {

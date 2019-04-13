@@ -1,4 +1,4 @@
-package com.sa.net.Session;
+package com.sa.net.session;
 
 public class Session {
     // 用户唯一性标识

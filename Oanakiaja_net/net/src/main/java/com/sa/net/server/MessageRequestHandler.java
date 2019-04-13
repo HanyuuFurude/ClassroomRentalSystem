@@ -12,7 +12,7 @@ import com.sa.net.utils.SessionUtil;
 
 import io.netty.channel.Channel;
 
-import com.sa.net.Session.*;
+import com.sa.net.session.*;
 
 public class MessageRequestHandler extends SimpleChannelInboundHandler<MessageRequestPacket> {
     @Override
