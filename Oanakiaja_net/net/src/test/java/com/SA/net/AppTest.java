@@ -1,4 +1,4 @@
-package com.SA.net;
+package com.sa.net;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
