@@ -36,4 +36,5 @@ public class LoginRequestPacket extends Packet {
 		this.password = password;
 	}
 
+
 }

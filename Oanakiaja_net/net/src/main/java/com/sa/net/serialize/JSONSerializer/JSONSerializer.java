@@ -6,18 +6,15 @@ import com.sa.net.serialize.SerializerAlogrithm;
 public class JSONSerializer implements Serializer {
 
 	//返回序列化标识
-    @Override
     public byte getSerializerAlogrithm() {
         return SerializerAlogrithm.JSON;
     }
     //序列化 由object转换成JSON字符串
-    @Override
     public byte[] serialize(Object object) {
 
         return JSON.toJSONBytes(object);
     }
     //反序列化 由JSON字符串转换成object数组
-    @Override
     public <T> T deserialize(Class<T> clazz, byte[] bytes) {
 
         return JSON.parseObject(bytes, clazz);

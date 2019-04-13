@@ -1,17 +1,13 @@
 package com.sa.net.protocol;    
 
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.ByteBufAllocator;
-
-
 import java.util.HashMap;
 import java.util.Map;
 
 import com.sa.net.serialize.Serializer;
 import com.sa.net.serialize.JSONSerializer.JSONSerializer;
 
-import static com.sa.net.protocol.Command.LOGIN_REQUEST;
-import static com.sa.net.protocol.Command.LOGIN_RESPONSE;
+import com.sa.net.protocol.Command;
 
 public class PacketCodec {
 	//魔数
@@ -23,18 +19,22 @@ public class PacketCodec {
 	个数据包并非是遵循自定义协议的，也就是无效数据包，为了安全考虑可以直接关闭连接以节省资源。在 Java 的字节码
 	的二进制文件中，开头的 4 个字节为0xcafebabe 用来标识这是个字节码文件，亦是异曲同工之妙。
 	*/
-    private static final int MAGIC_NUMBER = 0x12345678;
+    public static final int MAGIC_NUMBER = 0x12345678;
     public static final PacketCodec INSTANCE = new PacketCodec();
 
-    //先用MAP数据结构存取，packet类型，转换算法类型（这里就用ali的FASTJSON）
+    //先用MAP数据结构存取，Command-packet类型，序列化算法序号-转换算法类型（这里就用ali的FASTJSON）
     private final Map<Byte, Class<? extends Packet>> packetTypeMap;
     private final Map<Byte, Serializer> serializerMap;
 
-
+    
     private PacketCodec() {
         packetTypeMap = new HashMap<>();
-        packetTypeMap.put(LOGIN_REQUEST, LoginRequestPacket.class);
-        packetTypeMap.put(LOGIN_RESPONSE, LoginResponsePacket.class);
+        //这里添加Command与packet建立对应关系
+        packetTypeMap.put(Command.LOGIN_REQUEST, LoginRequestPacket.class);
+        packetTypeMap.put(Command.LOGIN_RESPONSE, LoginResponsePacket.class);
+        packetTypeMap.put(Command.MESSAGE_REQUEST, MessageRequestPacket.class);
+        packetTypeMap.put(Command.MESSAGE_RESPONSE, MessageResponsePacket.class);
+
 
         serializerMap = new HashMap<>();
         Serializer serializer = new JSONSerializer();
@@ -42,25 +42,30 @@ public class PacketCodec {
     }
 
     //封装成二进制过程
-    public ByteBuf encode(ByteBufAllocator byteBufAllocator, Packet packet) {
-        // 1. 创建 ByteBuf 对象
-        ByteBuf byteBuf = byteBufAllocator.ioBuffer();
-        // 2. 序列化 java 对象
+    public void encode(ByteBuf byteBuf, Packet packet) {
+        // 1. 序列化 java 对象
         byte[] bytes = Serializer.DEFAULT.serialize(packet);
 
-        // 3. 实际编码过程//按照协议
+        // 2. 实际编码过程
+        //前7个字节协议内容
+        //4B
         byteBuf.writeInt(MAGIC_NUMBER);
+        //1B
         byteBuf.writeByte(packet.getVersion());
+        //1B
         byteBuf.writeByte(Serializer.DEFAULT.getSerializerAlogrithm());
+        //1B
         byteBuf.writeByte(packet.getCommand());
+        //后面是数据
+        //4B数据长度
         byteBuf.writeInt(bytes.length);
+        //N字节
         byteBuf.writeBytes(bytes);
-
-        return byteBuf;
     }
 
     //解析 Java 对象的过程
     public Packet decode(ByteBuf byteBuf) {
+    	//层层解码
         // 跳过 magic number
         byteBuf.skipBytes(4);
 
