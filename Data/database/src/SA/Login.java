@@ -15,8 +15,5 @@ public class Login {
         else
             return 0x0010;
     }
-    public static void main(String[] args)
-    {
 
-    }
 }

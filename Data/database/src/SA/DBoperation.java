@@ -1,8 +1,10 @@
 package SA;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 public class DBoperation {
     public static DBoperation instance = new DBoperation();//单例模式
@@ -24,12 +26,13 @@ public class DBoperation {
             String sqlInset = "insert into ordertable(classRoom, user, startTime, endTime,used,breach,remarks) values(?,?,?,?,?,?,?)";
             PreparedStatement stmt = connection.prepareStatement(sqlInset);   //会抛出异常
 
-            stmt.setString(1, order.getclassRoom());//设置SQL语句第一个“？”的值
-            stmt.setString(2, order.getuser());//设置SQL语句第二个“？”的值
-            stmt.setTimestamp(3, order.getstartTime);//设置SQL语句第三个“？”的值
-            stmt.setTimestamp(4, order.getendTime());//设置SQL语句第四个“？”的值
-            stmt.setInt(5, order.getused());//设置SQL语句第五个“？”的值
-            stmt.setInt(6, order.getbreach());//设置SQL语句第六个“？”的值
+            stmt.setString(1, order.getClassRoom().getName());//设置SQL语句第一个“？”的值
+            stmt.setString(2, order.getUser().getSessionID());//设置SQL语句第二个“？”的值
+            stmt.setTimestamp(3, order.getStartTime());//设置SQL语句第三个“？”的值
+            stmt.setTimestamp(4, order.getEndTime());//设置SQL语句第四个“？”的值
+            stmt.setBoolean(5, order.isUsed());//设置SQL语句第五个“？”的值
+            stmt.setInt(6, order.getBreach());//设置SQL语句第六个“？”的值
+            stmt.setString(7, order.getRemark());//设置SQL语句第六个“？”的值
             int i = stmt.executeUpdate();//执行插入数据操作，返回影响的行数
             if (i == 1) {
                 result = true;
@@ -118,12 +121,15 @@ public class DBoperation {
         return ret;
     }
 
-//    public static void main(String[] args)
-//    {
-//        DBoperation D=new DBoperation();
+    public static void main(String[] args)
+    {
+        DBoperation D=new DBoperation();
 //        List<Time> res = D.selectStartime("1");
 //        for (int i = 0; i < res.size(); i++) {
 //            System.out.println(res.get(i).getStartTime() + " " + res.get(i).getEndTime());
 //        }
-//    }
+
+
+        //Order order=new Order("1","1",df.format(new Date()),df.format(new Date()),false,1,"3");
+    }
 }
