@@ -30,13 +30,13 @@ public class ClientUI {
     private JTextField textField;
     /**
      * @Author: Hanyuu
-     * @Description:重构：将临时变量划归到类变量中以便调用
+     * @Description: 重构：将临时变量划归到类变量中以便调用
      * @Date: 2019/4/15
      */
     private JPanel[] JPlpanel;
     /**
      * @Author: Hanyuu
-     * @Description:重构：将游离的temp变量划归到类变量中
+     * @Description: 重构：将游离的temp变量划归到类变量中
      * @Date: 2019/4/15
      */
     public   JPanel Jplcanvas;
