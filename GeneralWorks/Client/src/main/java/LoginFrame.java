@@ -58,12 +58,12 @@ public class LoginFrame extends JFrame {
 		contentPane.add(textField_password);
 		
 		JLabel lblUsername = new JLabel("username :");
-		lblUsername.setFont(new Font("ËÎÌå", Font.PLAIN, 18));
+		lblUsername.setFont(new Font("å®‹ä½“", Font.PLAIN, 18));
 		lblUsername.setBounds(66, 114, 103, 37);
 		contentPane.add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("password :");
-		lblPassword.setFont(new Font("ËÎÌå", Font.PLAIN, 18));
+		lblPassword.setFont(new Font("å®‹ä½“", Font.PLAIN, 18));
 		lblPassword.setBounds(66, 175, 103, 37);
 		contentPane.add(lblPassword);
 		
