@@ -6,7 +6,9 @@ public class ServerUserInfo {
 
 		public ServerUserInfo acceptLogin()
 		{
-			userinfo
+			//userinfo;
+            int a ;
+            return new ServerUserInfo();
 		}
 
 }
