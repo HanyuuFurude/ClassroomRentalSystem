@@ -83,6 +83,12 @@ public class LoginFrame extends JFrame {
 		contentPane.add(btnLogin);
 		
 		JButton btnLeave = new JButton("Leave");
+		btnLeave.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispose();
+			}
+		});
 		btnLeave.setBounds(279, 260, 97, 23);
 		contentPane.add(btnLeave);
 	}
