@@ -54,7 +54,7 @@
     * 调用位置：
         * ClassInfo类下的成员函数update()
     * 使用方法：
-        * 客户端生成一个ClassInfo对象并挂载到一个定期触发的线程中
+        * 客户端生成一个ClassInfo对象、填充session并挂载到一个定期触发的线程中
         * update方法返回一个infoList和statusCode
         * 根据infoList信息绘制占用ui
     * 返回值：infoList和statusCode

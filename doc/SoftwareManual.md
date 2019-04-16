@@ -70,7 +70,7 @@
 *   日志记录表（两份，一份记录当日往前7日（含当日）的日志，另一份存历史日志）
 *   Log Tabel
 
-| classRoom(master key) | user     | startTIme | endTime | used | breach | remarks  |
+| classRoom(master key) | uuid     | startTIme | endTime | used | breach | remarks  |
 | --------------------- | -------- | --------- | ------- | ---- | ------ | -------- |
 | CHAR[64]              | CHAR[64] | DATE      | DATE    | bool | bool   | CHAR[64] |
 
