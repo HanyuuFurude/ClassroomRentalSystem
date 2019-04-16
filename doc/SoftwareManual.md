@@ -18,10 +18,10 @@
 
 |缩略语|英文全名|中文解释|备注|
 |------|--------|--------|----|
-|uuid|Universally Unique Identifier|通用唯一识别码| 不可更改 |
-|id|Identifier|用户id| |
-|identify|Identify|用户类型| |
-|name|Name|用户名| |
+|uuid|Universally Unique Identifier|通用唯一识别码| 不可更改（数据库里标识主键的标识码） |
+|id|Identifier|用户id| 用于登录（登录框的用户名） |
+|identify|Identify|用户类型| 表示用户类型（在客户端上显示的用户名） |
+|name|Name|用户名| 昵称 |
 |passwd|Password|用户密码| 哈希值（32-bit md5） |
 |sess|Session|用户会话id| 全局唯一 |
 
