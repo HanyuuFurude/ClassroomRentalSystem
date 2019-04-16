@@ -7,8 +7,8 @@ import java.util.logging.*;
 
 public class Logging {
 
-    public static void main(String args[]) throws IOException,SecurityException {
-
+    public void log(Order order) throws IOException,SecurityException
+    {
         //日志文件
         String  path = System.getProperty("user.dir");//获取项目绝对路径
         String logPath = path + "\\db_info.log";
@@ -26,7 +26,12 @@ public class Logging {
             }
         });
         log.addHandler(fileHandler);
-        log.info("Order：");
+        log.info("Order(classRoom)："+order.getClassRoom().getName()+"\n"+
+                "user:"+order.getUser().getSessionID()+"\n"+
+                "startTime:"+order.getStartTime()+"\n"+
+                "endTime:"+order.getEndTime()+"\n"+
+                "used:"+order.isUsed()+"\n"+
+                "remarks:"+order.getRemark());
         fileHandler.close();
     }
 }

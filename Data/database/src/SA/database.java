@@ -2,6 +2,11 @@ package SA;
 
 import java.sql.*;
 
+/**
+ * created by lyx on 2019/4/14
+ * 数据库连接函数
+ */
+
 public class database {
     public static Connection connection=null;
     public static Connection connect() {
