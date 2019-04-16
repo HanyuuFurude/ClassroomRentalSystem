@@ -162,22 +162,22 @@ public class DBoperation {
         return ret;
     }
 
-    public static void main(String[] args) throws IOException
-    {
-        DBoperation D=new DBoperation();
-        System.out.println(D.selectPassword("222"));
-        List<Updatesql> res = D.selectForUpdate();
-        for (int i = 0; i < res.size(); i++) {
-            System.out.println(res.get(i).getClassRoom() + " " + res.get(i).getUser()
-            + " " + res.get(i).getEndtime());
-        }
-
-        ClassRoom classRoom=new ClassRoom("cccr");
-        Session session=new Session("s","vi",30);
-        Timestamp time1 = new Timestamp(System.currentTimeMillis());
-        Timestamp time2 = new Timestamp(System.currentTimeMillis());
-
-        Order o=new Order(classRoom,session,time1,time2,true,"2");
-        D.insertOrder(o);
-    }
+//    public static void main(String[] args) throws IOException
+//    {
+//        DBoperation D=new DBoperation();
+//        System.out.println(D.selectPassword("222"));
+//        List<Updatesql> res = D.selectForUpdate();
+//        for (int i = 0; i < res.size(); i++) {
+//            System.out.println(res.get(i).getClassRoom() + " " + res.get(i).getUser()
+//            + " " + res.get(i).getEndtime());
+//        }
+//
+//        ClassRoom classRoom=new ClassRoom("cccr");
+//        Session session=new Session("s","vi",30);
+//        Timestamp time1 = new Timestamp(System.currentTimeMillis());
+//        Timestamp time2 = new Timestamp(System.currentTimeMillis());
+//
+//        Order o=new Order(classRoom,session,time1,time2,true,"2");
+//        D.insertOrder(o);
+//    }
 }
