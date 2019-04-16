@@ -1,10 +1,15 @@
 package SA;
 
 /**
- * created by sheting on 2019/4/14
+ * created by lyx on 2019/4/14
  */
 public class ClassRoom {
         private String name;
+
+        public ClassRoom(String n)
+        {
+            this.name=n;
+        }
 
     public void setName(String name) {
         this.name = name;

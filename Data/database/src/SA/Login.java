@@ -4,7 +4,7 @@ public class Login {
     public Login() { }
 
 
-    public Byte login(String sid,Byte spassword)
+    public Byte login(String sid,String spassword)
     {
         DBoperation operator=new DBoperation();
         String password=operator.selectPassword(sid);

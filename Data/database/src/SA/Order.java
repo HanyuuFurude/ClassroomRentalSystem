@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 /**
- * created by sheting on 2019/4/14
+ * created by lyx on 2019/4/14
  */
 public class Order {
         private ClassRoom classRoom;
@@ -12,16 +12,22 @@ public class Order {
         private Timestamp startTime;
         private Timestamp endTime;
         private boolean used;
-        private int breach;
         private String remark;
+
+        public Order(ClassRoom c,Session u,Timestamp s,Timestamp e,boolean us,String r)
+        {
+            this.classRoom=c;
+            this.user=u;
+            this.startTime=s;
+            this.endTime=e;
+            this.used=us;
+            this.remark=r;
+        }
 
     public void setClassRoom(ClassRoom classRoom) {
         this.classRoom = classRoom;
     }
 
-    public void setBreach(int breach) {
-        this.breach = breach;
-    }
 
     public void setUser(Session user) {
         this.user = user;
@@ -61,10 +67,6 @@ public class Order {
 
     public String getRemark() {
         return remark;
-    }
-
-    public int getBreach() {
-        return breach;
     }
 
     public boolean isUsed() {
