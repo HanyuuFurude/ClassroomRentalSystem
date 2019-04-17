@@ -14,6 +14,16 @@ public class Order {
         private boolean used;
         private String remark;
 
+        public Order(ClassRoom c,Session u,Timestamp s,Timestamp e,boolean us,String r)
+        {
+            this.classRoom=c;
+            this.user=u;
+            this.startTime=s;
+            this.endTime=e;
+            this.used=us;
+            this.remark=r;
+        }
+
     public void setClassRoom(ClassRoom classRoom) {
         this.classRoom = classRoom;
     }
