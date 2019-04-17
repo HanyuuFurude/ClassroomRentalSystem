@@ -1,7 +1,7 @@
 package mine;
 /**
  * @author yourname
- * @date 2019年4月3日 下午8:12:31
+ * @date 2019年4月10日 下午9:52:38
  * 
  */
 
@@ -19,13 +19,23 @@ public class Administrator extends Role{
 		return null;
 	}
 
-	/*public InfoList getReservationInfomation(Person person) {
+	public InfoList getReservationInfomation(Role role) {
 		return null;
-	}*/
+	}
 	
-	//public statusCode addReservationInfomation() {
+	public StatusCode addReservationInfomation(InfoList info) {
+		return null;
 		
-	//}
+	}
+	
+	public StatusCode delReservationInfomation(InfoList info) {
+		return null;
+		
+	}
 
+	public StatusCode editReservationInfomation(InfoList info) {
+		return null;
+		
+	}
 
 }
