@@ -18,4 +18,8 @@ public interface Command {
 	Byte UPDATE_REQUEST = 7;
 	
 	Byte UPDATE_RESPONSE = 8;
+	
+	Byte ORDER_REQUEST = 9;
+	
+	Byte ORDER_RESPONSE = 10;
 }

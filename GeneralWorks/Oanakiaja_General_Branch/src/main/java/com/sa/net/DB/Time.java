@@ -8,10 +8,10 @@ import java.util.Date;
  */
 public class Time {
 
-    private Timestamp startTime;
-    private Timestamp endTime;
+    private Date startTime;
+    private Date endTime;
 
-    public Time(Timestamp startTime, Timestamp endTime) {
+    public Time(Date startTime, Date endTime) {
         this.startTime = startTime;
         this.endTime = endTime;
 }
@@ -20,7 +20,7 @@ public class Time {
         return startTime;
     }
 
-    public void setStartTime(Timestamp startTime) {
+    public void setStartTime(Date startTime) {
         this.startTime = startTime;
     }
 
@@ -28,7 +28,7 @@ public class Time {
         return endTime;
     }
 
-    public void setEndTime(Timestamp endTime) {
+    public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
 }

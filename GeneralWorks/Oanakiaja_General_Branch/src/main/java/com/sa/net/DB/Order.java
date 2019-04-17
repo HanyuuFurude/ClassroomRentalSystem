@@ -1,7 +1,7 @@
 package com.sa.net.DB;
 
 import java.sql.Timestamp;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * created by lyx on 2019/4/14
@@ -9,12 +9,12 @@ import java.util.Date;
 public class Order {
         private ClassRoom classRoom;
         private Session user;
-        private Timestamp startTime;
-        private Timestamp endTime;
+        private Date startTime;
+        private Date endTime;
         private boolean used;
         private String remark;
 
-        public Order(ClassRoom c,Session u,Timestamp s,Timestamp e,boolean us,String r)
+        public Order(ClassRoom c,Session u,Date s,Date e,boolean us,String r)
         {
             this.classRoom=c;
             this.user=u;
@@ -24,7 +24,10 @@ public class Order {
             this.remark=r;
         }
 
-    public void setClassRoom(ClassRoom classRoom) {
+    public Order() {
+			// TODO Auto-generated constructor stub
+		}
+	public void setClassRoom(ClassRoom classRoom) {
         this.classRoom = classRoom;
     }
 
@@ -33,7 +36,7 @@ public class Order {
         this.user = user;
     }
 
-    public void setEndTime(Timestamp endTime) {
+    public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
 
@@ -45,19 +48,19 @@ public class Order {
         this.used = used;
     }
 
-    public void setStartTime(Timestamp startTime) {
-        this.startTime = startTime;
+    public void setStartTime(Date date) {
+        this.startTime = date;
     }
 
     public ClassRoom getClassRoom() {
         return classRoom;
     }
 
-    public Timestamp getEndTime() {
+    public Date getEndTime() {
         return endTime;
     }
 
-    public Timestamp getStartTime() {
+    public Date getStartTime() {
         return startTime;
     }
 

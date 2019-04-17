@@ -30,8 +30,8 @@ public class DBoperation {
 
             stmt.setString(1, order.getClassRoom().getName());//设置SQL语句第一个“？”的值
             stmt.setString(2, order.getUser().getSessionID());//设置SQL语句第二个“？”的值
-            stmt.setTimestamp(3, order.getStartTime());//设置SQL语句第三个“？”的值
-            stmt.setTimestamp(4, order.getEndTime());//设置SQL语句第四个“？”的值
+            stmt.setDate(3, order.getStartTime());//设置SQL语句第三个“？”的值
+            stmt.setDate(4, order.getEndTime());//设置SQL语句第四个“？”的值
             stmt.setBoolean(5, order.isUsed());//设置SQL语句第五个“？”的值
             stmt.setInt(6,0);//设置SQL语句第六个“？”的值
             stmt.setString(7, order.getRemark());//设置SQL语句第六个“？”的值
