@@ -1,4 +1,4 @@
-package SA;
+package com.sa.net.DB;
 
 import java.sql.Timestamp;
 import java.util.Date;
