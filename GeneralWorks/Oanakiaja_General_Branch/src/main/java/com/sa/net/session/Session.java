@@ -5,10 +5,15 @@ public class Session {
     private int identify; //表示身份
     private String uuid;
     private String session;
-    public Session(String session,int identify, String uuid) {
+    private String name;
+    
+    private int update;
+    public Session(String session,int identify, String uuid,String name) {
         this.identify = identify;
         this.uuid = uuid;
         this.session = session;
+        this.name = name;
+        update = 1;
     }
 
     @Override
@@ -38,5 +43,21 @@ public class Session {
 
 	public void setIdentify(int tag) {
 		identify = tag;
+	}
+
+	public int getUpdate() {
+		return update;
+	}
+
+	public void setUpdate(int update) {
+		this.update = update;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

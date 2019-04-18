@@ -15,7 +15,7 @@ public class Database {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            String dbURL = "jdbc:mysql://localhost:3306/" + "MyDB?user=root&password=1129&serverTimezone=GMT%2B8&useSSL=false&nullNamePatternMatchesAll=true";
+            String dbURL = "jdbc:mysql://localhost:3306/" + "MyDB?user=root&password=zjt990108&serverTimezone=GMT%2B8&useSSL=false&nullNamePatternMatchesAll=true";
             connection = DriverManager.getConnection(dbURL);
 
             String sqlQuery = "select uuid from table1";

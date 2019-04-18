@@ -7,9 +7,9 @@ public interface Command {
 
 	Byte LOGIN_RESPONSE = 2;
 	
-	Byte MESSAGE_REQUEST =3 ;
+//	Byte MESSAGE_REQUEST =3 ;
 
-	Byte MESSAGE_RESPONSE = 4;
+//	Byte MESSAGE_RESPONSE = 4;
 	
     Byte LOGOUT_REQUEST = 5;
 
@@ -18,4 +18,8 @@ public interface Command {
 	Byte UPDATE_REQUEST = 7;
 	
 	Byte UPDATE_RESPONSE = 8;
+	
+	Byte ORDER_REQUEST = 9 ;
+	
+	Byte ORDER_RESPONSE = 10;
 }

@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
 import com.sa.net.client.NettyClient;
@@ -21,12 +22,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Dialog.ModalExclusionType;
 
-public class LoginFrame extends JFrame {
+public class  LoginFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField_username;
-	private JTextField textField_password;
-
+	private JPasswordField textField_password;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -61,18 +62,20 @@ public class LoginFrame extends JFrame {
 		contentPane.add(textField_username);
 		textField_username.setColumns(10);
 		
-		textField_password = new JTextField();
+		textField_password = new JPasswordField();
 		textField_password.setColumns(10);
 		textField_password.setBounds(179, 175, 165, 37);
 		contentPane.add(textField_password);
+		textField_password.setEchoChar('*');
+
 		
 		JLabel lblUsername = new JLabel("username :");
-		lblUsername.setFont(new Font("����", Font.PLAIN, 18));
+		lblUsername.setFont(new Font("宋体", Font.PLAIN, 18));
 		lblUsername.setBounds(66, 114, 103, 37);
 		contentPane.add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("password :");
-		lblPassword.setFont(new Font("����", Font.PLAIN, 18));
+		lblPassword.setFont(new Font("宋体", Font.PLAIN, 18));
 		lblPassword.setBounds(66, 175, 103, 37);
 		contentPane.add(lblPassword);
 		
@@ -83,12 +86,13 @@ public class LoginFrame extends JFrame {
 		JButton btnLogin = new JButton("Login");
 		 btnLogin.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
+				//if login函数返回值为true,登录成功 dispose(); 以user身份update主界面
 				LoginRequestPacket loginRequestPacket = new LoginRequestPacket();
 				loginRequestPacket.setUuid(textField_username.getText());
 				loginRequestPacket.setPassword(textField_password.getText());
 				LoginConsoleCommand loginConsoleCommand = new LoginConsoleCommand();
 				loginConsoleCommand.exec(loginRequestPacket, channel);
-				
+				dispose();
 			}
 		});
 		

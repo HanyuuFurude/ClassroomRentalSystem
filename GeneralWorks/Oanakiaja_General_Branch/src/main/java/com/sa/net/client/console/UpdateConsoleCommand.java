@@ -2,6 +2,7 @@ package com.sa.net.client.console;
 
 import java.util.Scanner;
 
+import com.sa.net.protocol.Packet;
 import com.sa.net.protocol.UpdateRequestPacket;
 
 import io.netty.channel.Channel;
@@ -15,10 +16,9 @@ import io.netty.channel.Channel;
 public class UpdateConsoleCommand extends ConsoleCommand{
 
 	@Override
-	public void exec(Object object, Channel channel) {
+	public void exec(Packet object, Channel channel) {
 		//这里object 获得标识， 是userupdate 还是 游客update
-		UpdateRequestPacket updateRequestPacket = new UpdateRequestPacket();
-		updateRequestPacket.setIdentify((int)object);
+		UpdateRequestPacket updateRequestPacket = (UpdateRequestPacket)object;
 		channel.writeAndFlush(updateRequestPacket);
 	}
 

@@ -2,15 +2,17 @@ package com.sa.net.client.console;
 
 import java.util.Scanner;
 
+import com.sa.net.UI.ErrorTip;
 import com.sa.net.protocol.LoginRequestPacket;
+import com.sa.net.protocol.Packet;
 
 import io.netty.channel.Channel;
 
 public class LoginConsoleCommand extends ConsoleCommand {
-	public void exec(Object object, Channel channel) {
+	public void exec(Packet object, Channel channel) {
 		LoginRequestPacket loginRequestPacket = (LoginRequestPacket) object;
 		if (loginRequestPacket.getUuid() == null || loginRequestPacket.getPassword() == null) {
-			// TODO 弹窗，请输入用户名或密码
+			new ErrorTip("请输入用户名或密码");
 		}
 
 		else {

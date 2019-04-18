@@ -1,6 +1,7 @@
 package com.sa.net.client;
 
 import com.sa.net.session.Session;
+import com.sa.net.UI.ErrorTip;
 import com.sa.net.protocol.LoginResponsePacket;
 import com.sa.net.utils.SessionUtil;
 
@@ -16,13 +17,14 @@ public class LoginResponseHandler extends SimpleChannelInboundHandler<LoginRespo
         String sessionID = loginResponsePacket.getSessionID();
         String uuid = loginResponsePacket.getUuid();
         int identify = loginResponsePacket.getIdentify();
+        String name = loginResponsePacket.getName();
         if (loginResponsePacket.isSuccess()) {
-            //TODO ui弹窗
         	System.out.println("[" + uuid + "]登录成功,SessionID"+sessionID);
-            SessionUtil.bindSession(new Session(sessionID,1, loginResponsePacket.getUuid()), ctx.channel());
+            SessionUtil.bindSession(new Session(sessionID,1, loginResponsePacket.getUuid(),name), ctx.channel());
+            SessionUtil.setUpdate(1, ctx.channel());
+            //改UI 
         } else {
-        	//TODO ui弹窗
-            System.out.println("[" + uuid + "]登录失败，原因：" + loginResponsePacket.getReason());
+        	new ErrorTip("[" + uuid + "]登录失败，原因：" + loginResponsePacket.getReason()).setVisible(true);;
         }
     }
 

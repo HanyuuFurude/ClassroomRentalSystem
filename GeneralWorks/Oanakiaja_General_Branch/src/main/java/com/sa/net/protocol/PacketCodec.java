@@ -32,9 +32,10 @@ public class PacketCodec {
         //这里添加Command与packet建立对应关系
         packetTypeMap.put(Command.LOGIN_REQUEST, LoginRequestPacket.class);
         packetTypeMap.put(Command.LOGIN_RESPONSE, LoginResponsePacket.class);
-        packetTypeMap.put(Command.MESSAGE_REQUEST, MessageRequestPacket.class);
-        packetTypeMap.put(Command.MESSAGE_RESPONSE, MessageResponsePacket.class);
-
+        packetTypeMap.put(Command.UPDATE_REQUEST, UpdateRequestPacket.class);
+        packetTypeMap.put(Command.UPDATE_RESPONSE, UpdateResponsePacket.class);
+        packetTypeMap.put(Command.ORDER_REQUEST, OrderRequestPacket.class);
+        packetTypeMap.put(Command.ORDER_RESPONSE, OrderResponsePacket.class);
 
         serializerMap = new HashMap<>();
         Serializer serializer = new JSONSerializer();

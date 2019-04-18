@@ -52,7 +52,16 @@ public class SessionUtil {
     	channel.attr(Attributes.SESSION).get().setIdentify(i);
     }
 
-
-
+    public static int getUpdate(Channel channel) {
+    	  return channel.attr(Attributes.SESSION).get().getUpdate();	
+    }
+    
+    public static void setUpdate(int update, Channel channel) {
+    	channel.attr(Attributes.SESSION).get().setUpdate(update);
+    }
+    
+    public static String getName(Channel channel) {
+    	return channel.attr(Attributes.SESSION).get().getName();
+    }
 
 }

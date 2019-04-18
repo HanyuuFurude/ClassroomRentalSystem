@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.UUID;
 
 import com.sa.net.session.Session;
+import com.sa.net.DB.DBoperation;
 import com.sa.net.DB.Login;
 import com.sa.net.protocol.LoginRequestPacket;
 import com.sa.net.protocol.LoginResponsePacket;
@@ -21,7 +22,10 @@ public class LoginRequestHandler extends SimpleChannelInboundHandler<LoginReques
         LoginResponsePacket loginResponsePacket = new LoginResponsePacket();
         loginResponsePacket.setVersion(loginRequestPacket.getVersion());
         // 或者这个地方获得数据库的真的那个人的名字也行
+        //DB
+        loginResponsePacket.setName(DBoperation.instance.selectName(loginRequestPacket.getUuid()));
         loginResponsePacket.setUuid(loginRequestPacket.getUuid());
+        
 
         if (valid(loginRequestPacket)) {
             loginResponsePacket.setSuccess(true);
@@ -29,7 +33,7 @@ public class LoginRequestHandler extends SimpleChannelInboundHandler<LoginReques
             loginResponsePacket.setSessionID(session);
             loginResponsePacket.setIdentify(1);
             System.out.println("[" + loginRequestPacket.getUuid() + "]登录成功,0x0000");
-            SessionUtil.bindSession(new Session(session,1, loginRequestPacket.getUuid()), ctx.channel());
+            SessionUtil.bindSession(new Session(session,1, loginRequestPacket.getUuid(),loginResponsePacket.getName()), ctx.channel());
             //SessionUtil.setIdentify(1, ctx.channel());
         } else {
         	loginResponsePacket.setIdentify(0);
@@ -47,7 +51,6 @@ public class LoginRequestHandler extends SimpleChannelInboundHandler<LoginReques
     	String password = loginRequestPacket.getPassword();
     	Login DBlogin = new Login();
     	return DBlogin.login(uuid, password);
-
     }
 
     private static String randomSessionId() {

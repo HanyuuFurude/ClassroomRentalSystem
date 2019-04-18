@@ -31,8 +31,10 @@ public class NettyServer {
 						ch.pipeline().addLast(new PacketDecoder());
 						ch.pipeline().addLast(new LoginRequestHandler());
 						//如果登陆过了就把这个验证去除
-						ch.pipeline().addLast(new AuthHandler());
+					//	ch.pipeline().addLast(new AuthHandler());
 					//	ch.pipeline().addLast(new MessageRequestHandler());
+						ch.pipeline().addLast(new UpdateRequestHandler());
+						ch.pipeline().addLast(new OrderRequestHandler());
                         ch.pipeline().addLast(new LogoutRequestHandler());
 						ch.pipeline().addLast(new PacketEncoder());
 					}

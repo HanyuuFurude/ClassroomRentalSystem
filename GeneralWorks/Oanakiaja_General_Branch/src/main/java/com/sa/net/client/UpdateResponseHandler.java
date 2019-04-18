@@ -1,9 +1,12 @@
 package com.sa.net.client;
 
+import java.sql.Time;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.sa.net.DB.Time;
+import com.sa.net.DB.MyTime;
+import com.sa.net.UI.ClientUI;
 import com.sa.net.protocol.LoginResponsePacket;
 
 import com.sa.net.protocol.UpdateRequestPacket;
@@ -23,10 +26,10 @@ public class UpdateResponseHandler extends SimpleChannelInboundHandler<UpdateRes
 
 	@Override
 	protected void channelRead0(ChannelHandlerContext ctx, UpdateResponsePacket updateResponsePacket) throws Exception {
-		Map<String,HashMap<Time,Integer>> map = updateResponsePacket.getMap();
+		Map<String, HashMap<MyTime, Integer>> map = updateResponsePacket.getMap();
 		// Map 为教室对应的订单，有教室名称，时间，状态。
-		// TODO 染色逻辑,刷新时机
-		
+		ClientUI.update_in_UI(map);//染色逻辑
+		SessionUtil.setUpdate(2, ctx.channel());  //刷新时机
 	}
 
 }

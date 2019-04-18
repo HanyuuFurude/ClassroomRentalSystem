@@ -15,6 +15,8 @@ public class LoginResponsePacket extends Packet {
 
     private int identify;
     
+    private String name;
+    
     @Override
     public Byte getCommand() {
         return LOGIN_RESPONSE;
@@ -63,6 +65,14 @@ public class LoginResponsePacket extends Packet {
 
 	public void setIdentify(int identify) {
 		this.identify = identify;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }
