@@ -8,6 +8,12 @@
 
 <small>^*^具体分工在文档末尾</small>
 
+*   项目地址: https://github.com/HanyuuFurude/LeaderMeiSaveTheWorld
+
+*   介绍页链接:https://github.com/HanyuuFurude/LeaderMeiSaveTheWorld
+
+    ![1555606183424](AllIn/QRCode.png)
+
 [TOC]
 
 # 需求分析
