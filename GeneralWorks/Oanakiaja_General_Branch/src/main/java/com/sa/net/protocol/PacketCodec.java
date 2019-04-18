@@ -36,6 +36,8 @@ public class PacketCodec {
         packetTypeMap.put(Command.UPDATE_RESPONSE, UpdateResponsePacket.class);
         packetTypeMap.put(Command.ORDER_REQUEST, OrderRequestPacket.class);
         packetTypeMap.put(Command.ORDER_RESPONSE, OrderResponsePacket.class);
+        packetTypeMap.put(Command.LOGOUT_REQUEST, LogoutRequestPacket.class);
+        packetTypeMap.put(Command.LOGOUT_RESPONSE, LogoutResponsePacket.class);
 
         serializerMap = new HashMap<>();
         Serializer serializer = new JSONSerializer();

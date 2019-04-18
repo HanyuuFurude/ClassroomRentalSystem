@@ -29,7 +29,7 @@ public class NettyClient {
     private static final int MAX_RETRY = 5;
     //先拿本地的IP测试
     private static final String LOCALHOST = "127.0.0.1";
-    private static final int LOCALPORT = 8000;
+    private static final int LOCALPORT = 8321;
     public NioEventLoopGroup workerGroup;
 	public Bootstrap bootstrap;
     public String host;
@@ -120,6 +120,7 @@ public class NettyClient {
 			ClientUI window = new ClientUI(channel);
 			window.frame.setVisible(true);
 			UpdateRequestPacket updateRequestPacket = new UpdateRequestPacket(SessionUtil.getIdentify(channel));
+			System.out.println(SessionUtil.getIdentify(channel));
       	   new UpdateConsoleCommand().exec(updateRequestPacket, channel);
             while (!Thread.interrupted()) {
                 if (!SessionUtil.hasConnected(channel)) {
@@ -127,8 +128,7 @@ public class NettyClient {
                 } else {
                 	if(SessionUtil.getUpdate(channel)==1)
                 	{                	  
-                	  // UpdateRequestPacket updateRequestPacket = new UpdateRequestPacket(SessionUtil.getIdentify(channel));
-                 	  //new UpdateConsoleCommand().exec(updateRequestPacket, channel);
+                 //	  new UpdateConsoleCommand().exec(updateRequestPacket, channel);
                 	}
                 }
             }

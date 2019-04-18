@@ -246,19 +246,36 @@ public class DBoperation {
                 e.printStackTrace();
             }
         }
+        for (int i = 0; i < ret.size(); i++) {
+            System.out.println(ret.get(i).getClassRoom() + " " + ret.get(i).getUser()+" "+ret.get(i).getStarttime()
+            + " " + ret.get(i).getEndtime());
+        }
         return ret;
     }
-
+/*
     public static void main(String[] args) throws IOException
     {
         DBoperation D=new DBoperation();
-        System.out.println(D.selectPassword("222"));
-        List<Updatesql> res = D.selectForUpdate();
-        for (int i = 0; i < res.size(); i++) {
-            System.out.println(res.get(i).getClassRoom() + " " + res.get(i).getUser()
+      //  List<Updatesql> res = D.selectForUpdate();
+        boolean res =  D.isUser("J2-201", changeToMyTime("10:00:00"),  changeToMyTime("10:00:00"), "222");
+       /* for (int i = 0; i < res.size(); i++) {
+            System.out.println(res.get(i).getClassRoom() + " " + res.get(i).getUser()+" "+res.get(i).getStarttime()
             + " " + res.get(i).getEndtime());
         }
+        System.out.println(res);
 
-    }
-
+    }*/
+    /*
+	private static Time changeToMyTime(String start) {
+		SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+		java.util.Date ds = null;
+		try {
+			ds =  format.parse(start);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		java.sql.Time startTime = new java.sql.Time(ds.getTime());
+		return startTime;
+	}
+*/
 }

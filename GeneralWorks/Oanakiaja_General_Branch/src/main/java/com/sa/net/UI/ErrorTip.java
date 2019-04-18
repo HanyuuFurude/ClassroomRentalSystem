@@ -15,6 +15,7 @@ public class ErrorTip extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -27,20 +28,20 @@ public class ErrorTip extends JFrame {
 			}
 		});
 	}
-
+*/
 	/**
 	 * Create the frame.
 	 */
 	public ErrorTip(String error) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(50, 50, 400, 250);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new EmptyBorder(3, 3, 3, 3));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel(error);
-		lblNewLabel.setBounds(81, 54, 294, 146);
+		lblNewLabel.setBounds(40, 50,400, 146);
 		contentPane.add(lblNewLabel);
 	}
 

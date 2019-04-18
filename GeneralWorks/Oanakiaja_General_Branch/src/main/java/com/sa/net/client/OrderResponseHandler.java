@@ -2,8 +2,10 @@ package com.sa.net.client;
 
 import com.sa.net.UI.ClientUI;
 import com.sa.net.UI.ErrorTip;
+import com.sa.net.client.console.UpdateConsoleCommand;
 import com.sa.net.protocol.LogoutResponsePacket;
 import com.sa.net.protocol.OrderResponsePacket;
+import com.sa.net.protocol.UpdateRequestPacket;
 import com.sa.net.utils.SessionUtil;
 
 import io.netty.channel.ChannelHandlerContext;
@@ -15,7 +17,8 @@ public class OrderResponseHandler extends SimpleChannelInboundHandler<OrderRespo
 	protected void channelRead0(ChannelHandlerContext ctx, OrderResponsePacket orderResponsePacket) throws Exception {
 		boolean isSuccess = orderResponsePacket.isSuccess();
 		if(isSuccess) {			
-			SessionUtil.setUpdate(1, ctx.channel()); //刷新染色
+			 new UpdateConsoleCommand().exec(new UpdateRequestPacket(SessionUtil.getIdentify(ctx.channel())), ctx.channel());
+			System.out.println("成功");
 		}else {
 			new ErrorTip("弹出报错框");
 		}

@@ -25,67 +25,103 @@ import io.netty.channel.SimpleChannelInboundHandler;
 public class UpdateRequestHandler extends SimpleChannelInboundHandler<UpdateRequestPacket>{
 
 	@Override
-	protected void channelRead0(ChannelHandlerContext ctx, UpdateRequestPacket updateRequestPacket) {
+	protected void channelRead0(ChannelHandlerContext ctx, UpdateRequestPacket updateRequestPacket)throws Exception {
+	 try {
+		 System.out.println("UpdateRequestHandler");
+		 if(updateRequestPacket instanceof UpdateRequestPacket) {
 		UpdateResponsePacket updateResponsePacket = new UpdateResponsePacket();
 		DBoperation db = new DBoperation();
-		if(updateRequestPacket.getIdentify()==1)
+		
+		
+		Map<String,HashMap<MyTime,Integer>> map ;
+		if(updateRequestPacket.getIdentify()==0)
 		{
-			//用户登陆
-			UserUpdate(ctx,db,updateResponsePacket);
-		}
-		else {
 			//游客登陆
-			VisitorUpdate(ctx,db,updateResponsePacket);
+			System.out.println("-----visitoruuu---");
+			List<Updatesql> infoList = db.selectForUpdate(); //获得所有订单
+			 map = new HashMap<String,HashMap<MyTime,Integer>>();// 教室，日期，状态
+			for(int i = 0 ;i<infoList.size(); i++)
+			{
+				String room = infoList.get(i).getClassRoom();
+				
+				if(map.containsKey(room))
+				{
+					map.get(room).put(new MyTime(infoList.get(i).getStarttime(),infoList.get(i).getEndtime()),0);
+				}
+				else
+				{
+					map.put(room, new HashMap<MyTime,Integer>());
+					map.get(room).put(new MyTime(infoList.get(i).getStarttime(),infoList.get(i).getEndtime()), 0);
+				}
+			}
+			for(String room:map.keySet())
+			{
+				for(MyTime time:map.get(room).keySet()) {
+					System.out.println("-----???---");
+					System.out.println(room);
+					System.out.println(map.get(room).get(time));
+					System.out.println(time.getStartTime().toString() + time.getEndTime().toString());
+				}
+			}
+		}
+		else {			
+			System.out.println("-----useruuu---");
+			//用户登陆
+			String uuid = SessionUtil.getUuid(ctx.channel()); 
+			//List<Updatesql> userInfoList = db.UserSelectOrder(uuid); //查询客户的List
+			List<Updatesql> infoList = db.selectForUpdate(); //获得所有订单
+			map= new HashMap<String,HashMap<MyTime,Integer>>();// 教室，日期，状态
+			for(int i = 0 ;i<infoList.size(); i++)
+			{
+				String room = infoList.get(i).getClassRoom();
+				if(infoList.get(i).getUser().equals(uuid)) {
+					if(map.containsKey(room))
+					{
+						map.get(room).put(new MyTime(infoList.get(i).getStarttime(),infoList.get(i).getEndtime()),1);
+					}
+					else
+					{
+						map.put(room, new HashMap<MyTime,Integer>());
+						map.get(room).put(new MyTime(infoList.get(i).getStarttime(),infoList.get(i).getEndtime()), 1);
+					}
+				}else {
+				if(map.containsKey(room))
+				{
+					map.get(room).put(new MyTime(infoList.get(i).getStarttime(),infoList.get(i).getEndtime()),0);
+				}
+				else
+				{
+					map.put(room, new HashMap<MyTime,Integer>());
+					map.get(room).put(new MyTime(infoList.get(i).getStarttime(),infoList.get(i).getEndtime()), 0);
+				}
+				}
+			}
+			for(String room:map.keySet())
+			{
+				for(MyTime time:map.get(room).keySet()) {
+					System.out.println("-----!!!---");
+					System.out.println(room);
+					System.out.println(map.get(room).get(time));
+					System.out.println(time.getStartTime().toString() + time.getEndTime().toString());
+				}
+			}
 		}
 		// 登录响应
-        ctx.channel().writeAndFlush(updateResponsePacket);
-	}
+		//updateResponsePacket.setInfoList(infoList);
+        updateResponsePacket.setMap(map);
+		ctx.channel().writeAndFlush(updateResponsePacket);
+		 }
+	 }catch(Exception e) {
+		 e.printStackTrace();
+	 }
+	}/*
 	void UserUpdate(ChannelHandlerContext ctx,DBoperation db, UpdateResponsePacket updateResponsePacket)
 	{
-		String uuid = SessionUtil.getUuid(ctx.channel()); 
-		List<Updatesql> userInfoList = db.UserSelectOrder(uuid); //查询客户的List
-		List<Updatesql> infoList = db.selectForUpdate(); //获得所有订单
-		Map<String,HashMap<MyTime,Integer>> map = new HashMap<String,HashMap<MyTime,Integer>>();// 教室，日期，状态
-		for(int i = 0 ;i<infoList.size(); i++)
-		{
-			String room = infoList.get(i).getClassRoom();
-			
-			if(map.containsKey(room))
-			{
-				map.get(room).put(new MyTime(infoList.get(i).getStarttime(),infoList.get(i).getEndtime()),0);
-			}
-			else
-			{
-				map.put(room, new HashMap<MyTime,Integer>());
-				map.get(room).put(new MyTime(infoList.get(i).getStarttime(),infoList.get(i).getEndtime()), 0);
-			}
-		}
-		for(int i = 0; i<userInfoList.size();i++)
-		{
-			String room = userInfoList.get(i).getClassRoom();
-			map.get(room).put(new MyTime(userInfoList.get(i).getStarttime(),userInfoList.get(i).getEndtime()),1);
-		}
-		updateResponsePacket.setMap(map);
-	}
-	
+
+	}*/
+	/*
 	void VisitorUpdate(ChannelHandlerContext ctx,DBoperation db, UpdateResponsePacket updateResponsePacket)
 	{
-		List<Updatesql> infoList = db.selectForUpdate(); //获得所有订单
-		Map<String,HashMap<MyTime,Integer>> map = new HashMap<String,HashMap<MyTime,Integer>>();// 教室，日期，状态
-		for(int i = 0 ;i<infoList.size(); i++)
-		{
-			String room = infoList.get(i).getClassRoom();
-			
-			if(map.containsKey(room))
-			{
-				map.get(room).put(new MyTime(infoList.get(i).getStarttime(),infoList.get(i).getEndtime()),0);
-			}
-			else
-			{
-				map.put(room, new HashMap<MyTime,Integer>());
-				map.get(room).put(new MyTime(infoList.get(i).getStarttime(),infoList.get(i).getEndtime()), 0);
-			}
-		}
-		updateResponsePacket.setMap(map);
-	}
+		
+	}*/
 }

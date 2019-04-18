@@ -1,13 +1,12 @@
 package com.sa.net.client.console;
 import io.netty.channel.Channel;
+import com.sa.net.protocol.LogoutRequestPacket;
+import com.sa.net.protocol.Packet;
 
-
-import java.util.Scanner;
-/*
 public class LogoutConsoleCommand extends ConsoleCommand {
     @Override
-    public void exec(Scanner scanner, Channel channel) {
-      //  LogoutRequestPacket logoutRequestPacket = new LogoutRequestPacket();
-       // channel.writeAndFlush(logoutRequestPacket);
+    public void exec(Packet packet, Channel channel) {
+        LogoutRequestPacket logoutRequestPacket = (LogoutRequestPacket) packet;
+        channel.writeAndFlush(logoutRequestPacket);
     }
-}*/
+}

@@ -1,8 +1,11 @@
 package com.sa.net.client;
 
 import com.sa.net.session.Session;
+import com.sa.net.UI.ClientUI;
 import com.sa.net.UI.ErrorTip;
+import com.sa.net.client.console.UpdateConsoleCommand;
 import com.sa.net.protocol.LoginResponsePacket;
+import com.sa.net.protocol.UpdateRequestPacket;
 import com.sa.net.utils.SessionUtil;
 
 import io.netty.channel.ChannelHandlerContext;
@@ -21,11 +24,14 @@ public class LoginResponseHandler extends SimpleChannelInboundHandler<LoginRespo
         if (loginResponsePacket.isSuccess()) {
         	System.out.println("[" + uuid + "]登录成功,SessionID"+sessionID);
             SessionUtil.bindSession(new Session(sessionID,1, loginResponsePacket.getUuid(),name), ctx.channel());
-            SessionUtil.setUpdate(1, ctx.channel());
-            //改UI 
+            new UpdateConsoleCommand().exec(new UpdateRequestPacket(SessionUtil.getIdentify(ctx.channel())), ctx.channel());
+              //改UI 
+           ClientUI.UpdateName(ctx.channel());
+           ClientUI.UpdateLogin(ctx.channel());
         } else {
         	new ErrorTip("[" + uuid + "]登录失败，原因：" + loginResponsePacket.getReason()).setVisible(true);;
         }
+        ctx.flush();
     }
 
     @Override

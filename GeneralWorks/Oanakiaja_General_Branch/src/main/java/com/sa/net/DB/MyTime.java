@@ -23,4 +23,16 @@ public class MyTime {
 	public void setEndTime(Time endTime) {
 		this.endTime = endTime;
 	}
+	@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        MyTime time = (MyTime) o;
+
+        if (startTime.getTime() == time.startTime.getTime() && endTime.getTime()==time.endTime.getTime())
+        	return true;
+        else
+        	return false;
+    }
 }
