@@ -1,7 +1,9 @@
 # 软件总体设计说明书
 
+[TOC]
 
 ## 关键词
+
 教室租借、 c/s、MVC
 
 ## 摘要
@@ -68,7 +70,7 @@
 
 
 *   日志记录表（两份，一份记录当日往前7日（含当日）的日志，另一份存历史日志）
-*   Log Tabel
+*   Log Table
 
 | classRoom(master key) | uuid     | startTIme | endTime | used | breach | remarks  |
 | --------------------- | -------- | --------- | ------- | ---- | ------ | -------- |
