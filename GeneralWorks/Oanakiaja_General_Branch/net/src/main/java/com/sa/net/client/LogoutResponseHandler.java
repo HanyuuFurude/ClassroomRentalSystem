@@ -15,8 +15,10 @@ public class LogoutResponseHandler extends SimpleChannelInboundHandler<LogoutRes
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, LogoutResponsePacket logoutResponsePacket) {
         SessionUtil.setIdentify(0, ctx.channel());
+        SessionUtil.setName("Visitor", ctx.channel());
         //SessionUtil.unBindSession(ctx.channel());
         ClientUI.UpdateLogout(ctx.channel());
+        ClientUI.UpdateName(ctx.channel());
         new UpdateConsoleCommand().exec(new UpdateRequestPacket(SessionUtil.getIdentify(ctx.channel())), ctx.channel());
         ctx.flush();
     }
