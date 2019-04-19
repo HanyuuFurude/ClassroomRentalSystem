@@ -194,13 +194,13 @@
 
 ### 激励/响应序列
 
-![login](E:/Repos/LeaderMeiSaveTheWorld/doc/pic/login.jpg)
+![login](pic/login.jpg)
 
-![logout](E:/Repos/LeaderMeiSaveTheWorld/doc/pic/logout.jpg)
+![logout](pic/logout.jpg)
 
-![query](E:/Repos/LeaderMeiSaveTheWorld/doc/pic/query.jpg)
+![query](pic/query.jpg)
 
-![update](E:/Repos/LeaderMeiSaveTheWorld/doc/pic/update.jpg)
+![update](pic/update.jpg)
 
 #### 数据结构
 
@@ -327,7 +327,7 @@
 
 ### 系统结构设计
 
-![class](E:/Repos/LeaderMeiSaveTheWorld/doc/pic/class.jpg)
+![class](pic/class.jpg)
 
 #### 系统特性表
 
@@ -407,7 +407,7 @@
 
 #### 系统特性结构图
 
-![class](E:/Repos/LeaderMeiSaveTheWorld/doc/pic/class.jpg)
+![class](pic/class.jpg)
 
 ### 系统接口设计
 
@@ -593,17 +593,17 @@ ping设置，每个网址ping 4次，超时5000ms，如果至少有一次成功�
 
 ## 部件详细设计
 
-![usecase](E:/Repos/LeaderMeiSaveTheWorld/doc/pic/usecase.jpg)
+![usecase](pic/usecase.jpg)
 
-![login](E:/Repos/LeaderMeiSaveTheWorld/doc/pic/login.jpg)
+![login](pic/login.jpg)
 
-![logout](E:/Repos/LeaderMeiSaveTheWorld/doc/pic/logout.jpg)
+![logout](pic/logout.jpg)
 
-![query](E:/Repos/LeaderMeiSaveTheWorld/doc/pic/query.jpg)
+![query](pic/query.jpg)
 
-![update](E:/Repos/LeaderMeiSaveTheWorld/doc/pic/update.jpg)
+![update](pic/update.jpg)
 
-![class](E:/Repos/LeaderMeiSaveTheWorld/doc/pic/class.jpg)
+![class](pic/class.jpg)
 
 ## 词汇表
 
@@ -766,9 +766,9 @@ x86-64单服务器
 
 
 
-![SoftwareManual/useCase.jpg](E:/Repos/LeaderMeiSaveTheWorld/doc/SoftwareManual/useCase.jpg)
+![SoftwareManual/useCase.jpg](SoftwareManual/useCase.jpg)
 
-![SoftwareManual/class.jpg](E:/Repos/LeaderMeiSaveTheWorld/doc/SoftwareManual/class.jpg)
+![SoftwareManual/class.jpg](SoftwareManual/class.jpg)
 
 #### 各实体说明
 
