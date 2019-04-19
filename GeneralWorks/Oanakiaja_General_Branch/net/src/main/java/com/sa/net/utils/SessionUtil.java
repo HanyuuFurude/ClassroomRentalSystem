@@ -63,5 +63,9 @@ public class SessionUtil {
     public static String getName(Channel channel) {
     	return channel.attr(Attributes.SESSION).get().getName();
     }
+    
+    public static void setName(String name ,Channel channel) {
+    	channel.attr(Attributes.SESSION).get().setName(name);
+    }
 
 }
