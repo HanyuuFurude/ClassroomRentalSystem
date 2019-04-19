@@ -1,6 +1,7 @@
 package com.sa.net.DB;
 
-import java.sql.Timestamp;
+import java.sql.Time;
+
 
 /**
  * created by sheting on 2019/4/16
@@ -8,13 +9,13 @@ import java.sql.Timestamp;
 public class Updatesql {
     private String classRoom;
     private String user;
-    private Timestamp starttime;
-    private Timestamp endtime;
+    private Time starttime;
+    private Time endtime;
     private int used;
     private int breach;
     private String remark;
 
-    public Updatesql(String c,String u,Timestamp s,Timestamp e,int us,int b,String r)
+    public Updatesql(String c,String u,Time s,Time e,int us,int b,String r)
     {
         this.classRoom=c;
         this.breach=b;
@@ -65,19 +66,19 @@ public class Updatesql {
         return user;
     }
 
-    public Timestamp getEndtime() {
+    public Time getEndtime() {
         return endtime;
     }
 
-    public Timestamp getStarttime() {
+    public Time getStarttime() {
         return starttime;
     }
 
-    public void setEndtime(Timestamp endtime) {
+    public void setEndtime(Time endtime) {
         this.endtime = endtime;
     }
 
-    public void setStarttime(Timestamp starttime) {
+    public void setStarttime(Time starttime) {
         this.starttime = starttime;
     }
 }

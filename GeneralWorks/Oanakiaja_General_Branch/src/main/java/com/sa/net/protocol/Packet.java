@@ -4,7 +4,7 @@ package com.sa.net.protocol;
 import com.alibaba.fastjson.annotation.JSONField;
 //lombok奉行简化代码主义  @Data 表示自动获得代码中的Getter 和 Setter方法
 
-public abstract class Packet {
+public class Packet {
 	/**
 	 * 协议版本
 	 */
@@ -17,7 +17,9 @@ public abstract class Packet {
 		return version;
 	}
 	@JSONField(serialize = false)
-	public abstract Byte getCommand();
+	public  Byte getCommand() {
+		return null;
+	}
 
 	
 }

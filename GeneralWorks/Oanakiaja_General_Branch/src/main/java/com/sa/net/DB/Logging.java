@@ -27,8 +27,8 @@ public class Logging {
             }
         });
         log.addHandler(fileHandler);
-        log.info("Order(classRoom)："+order.getClassRoom().getName()+"\n"+
-                "user:"+order.getUser().getSessionID()+"\n"+
+        log.info("Order(classRoom)："+order.getClassRoom()+"\n"+
+                "user:"+order.getUser()+"\n"+
                 "startTime:"+order.getStartTime()+"\n"+
                 "endTime:"+order.getEndTime()+"\n"+
                 "used:"+order.isUsed()+"\n"+

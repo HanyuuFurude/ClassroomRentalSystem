@@ -1,22 +1,21 @@
 package com.sa.net.DB;
 
-import java.sql.Timestamp;
-import java.util.Date;
+import java.sql.Time;
 
 /**
  * created by lyx on 2019/4/14
  */
 public class Order {
-        private ClassRoom classRoom;
-        private Session user;
-        private Timestamp startTime;
-        private Timestamp endTime;
+        private String classRoom;
+        private String user;
+		private Time startTime;
+        private Time endTime;
         private boolean used;
         private String remark;
 
-        public Order(ClassRoom c,Session u,Timestamp s,Timestamp e,boolean us,String r)
+        public Order(String c,String u,Time s,Time e,boolean us,String r)
         {
-            this.classRoom=c;
+            this.setClassRoom(c);
             this.user=u;
             this.startTime=s;
             this.endTime=e;
@@ -24,52 +23,52 @@ public class Order {
             this.remark=r;
         }
 
-    public void setClassRoom(ClassRoom classRoom) {
-        this.classRoom = classRoom;
-    }
+		public String getClassRoom() {
+			return classRoom;
+		}
 
+		public void setClassRoom(String classRoom) {
+			this.classRoom = classRoom;
+		}
 
-    public void setUser(Session user) {
-        this.user = user;
-    }
+        public String getUser() {
+			return user;
+		}
 
-    public void setEndTime(Timestamp endTime) {
-        this.endTime = endTime;
-    }
+		public void setUser(String user) {
+			this.user = user;
+		}
 
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
+		public Time getStartTime() {
+			return startTime;
+		}
 
-    public void setUsed(boolean used) {
-        this.used = used;
-    }
+		public void setStartTime(Time startTime) {
+			this.startTime = startTime;
+		}
 
-    public void setStartTime(Timestamp startTime) {
-        this.startTime = startTime;
-    }
+		public Time getEndTime() {
+			return endTime;
+		}
 
-    public ClassRoom getClassRoom() {
-        return classRoom;
-    }
+		public void setEndTime(Time endTime) {
+			this.endTime = endTime;
+		}
 
-    public Timestamp getEndTime() {
-        return endTime;
-    }
+		public boolean isUsed() {
+			return used;
+		}
 
-    public Timestamp getStartTime() {
-        return startTime;
-    }
+		public void setUsed(boolean used) {
+			this.used = used;
+		}
 
-    public Session getUser() {
-        return user;
-    }
+		public String getRemark() {
+			return remark;
+		}
 
-    public String getRemark() {
-        return remark;
-    }
-
-    public boolean isUsed() {
-        return used;
-    }
+		public void setRemark(String remark) {
+			this.remark = remark;
+		}
+  
 }
